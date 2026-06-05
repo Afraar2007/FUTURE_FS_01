@@ -1,20 +1,17 @@
-import { useEffect, useMemo, useState } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { useMemo } from "react";
+import Particles, {
+  ParticlesProvider,
+  useParticlesProvider,
+} from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import type { ISourceOptions } from "@tsparticles/engine";
+import type { Engine, ISourceOptions } from "@tsparticles/engine";
 
-/**
- * Mouse-reactive interactive particle field.
- * Must be rendered inside <ClientOnly> to avoid SSR issues.
- */
-export function ParticleBackground() {
-  const [ready, setReady] = useState(false);
+const init = async (engine: Engine) => {
+  await loadSlim(engine);
+};
 
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => setReady(true));
-  }, []);
+function ParticlesField() {
+  const { loaded } = useParticlesProvider();
 
   const options: ISourceOptions = useMemo(
     () => ({
@@ -60,7 +57,7 @@ export function ParticleBackground() {
     []
   );
 
-  if (!ready) return null;
+  if (!loaded) return null;
 
   return (
     <Particles
@@ -68,5 +65,17 @@ export function ParticleBackground() {
       options={options}
       className="pointer-events-none fixed inset-0 -z-[5] h-full w-full"
     />
+  );
+}
+
+/**
+ * Mouse-reactive interactive particle field.
+ * Must be rendered inside <ClientOnly> to avoid SSR issues.
+ */
+export function ParticleBackground() {
+  return (
+    <ParticlesProvider init={init}>
+      <ParticlesField />
+    </ParticlesProvider>
   );
 }
