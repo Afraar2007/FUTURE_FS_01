@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://stellar-showcase-41.lovable.app/sitemap.xml
