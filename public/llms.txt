@@ -1,0 +1,9 @@
+# Aarav Kapoor — Creative Full-Stack Developer
+
+> Award-style portfolio of Aarav Kapoor, a creative full-stack developer building immersive, high-performance web experiences with React, Three.js and motion design.
+
+This is a single-page animated developer portfolio showcasing projects, skills, articles, coding profiles, resume and contact information.
+
+## Pages
+
+- [Home](/): Hero, about, skills, featured projects, articles, coding profiles, resume and contact sections.
