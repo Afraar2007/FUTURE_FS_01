@@ -79,6 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Software Developer | Web Developer | Problem Solver 🚀" },
       { name: "description", content: "Motivated and detail-oriented individual with a strong passion for technology, problem-solving, and continuous learning.Committed to delivering quality work.." },
+      { name: "google-site-verification", content: "okD1sObWnL3bxsEoAGOJ7iMVKzcsv8nTpl8uZRJNblc" },
       { name: "author", content: "Lovable" },
       { property: "og:title", content: "Software Developer | Web Developer | Problem Solver 🚀" },
       { property: "og:description", content: "Motivated and detail-oriented individual with a strong passion for technology, problem-solving, and continuous learning.Committed to delivering quality work.." },
