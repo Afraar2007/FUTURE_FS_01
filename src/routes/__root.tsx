@@ -77,19 +77,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Software Developer | Web Developer | Problem Solver 🚀" },
-      { name: "description", content: "Motivated and detail-oriented individual with a strong passion for technology, problem-solving, and continuous learning.Committed to delivering quality work.." },
       { name: "google-site-verification", content: "okD1sObWnL3bxsEoAGOJ7iMVKzcsv8nTpl8uZRJNblc" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Software Developer | Web Developer | Problem Solver 🚀" },
-      { property: "og:description", content: "Motivated and detail-oriented individual with a strong passion for technology, problem-solving, and continuous learning.Committed to delivering quality work.." },
+      { name: "author", content: "Aarav Kapoor" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Software Developer | Web Developer | Problem Solver 🚀" },
-      { name: "twitter:description", content: "Motivated and detail-oriented individual with a strong passion for technology, problem-solving, and continuous learning.Committed to delivering quality work.." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/vKywpksihFh2syJWPzXSwFiTgmX2/social-images/social-1780743965416-WhatsApp_Image_2026-06-02_at_6.01.11_PM.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/vKywpksihFh2syJWPzXSwFiTgmX2/social-images/social-1780743965416-WhatsApp_Image_2026-06-02_at_6.01.11_PM.webp" },
+      { property: "og:site_name", content: "Aarav Kapoor — Portfolio" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
