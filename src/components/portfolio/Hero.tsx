@@ -11,7 +11,7 @@ function scrollToId(id: string) {
 
 const container: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.3 } },
+  show: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
 };
 const item: Variants = {
   hidden: { opacity: 0, y: 28 },
