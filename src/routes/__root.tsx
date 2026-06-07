@@ -78,14 +78,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "google-site-verification", content: "okD1sObWnL3bxsEoAGOJ7iMVKzcsv8nTpl8uZRJNblc" },
-      { name: "author", content: "Aarav Kapoor" },
+      { name: "author", content: "Afraar M" },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Aarav Kapoor — Portfolio" },
+      { property: "og:site_name", content: "Afraar M — Portfolio" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+      },
       {
         rel: "stylesheet",
         href: appCss,

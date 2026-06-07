@@ -29,9 +29,13 @@ export function Contact() {
     message: "",
   });
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const formspreeFormId = import.meta.env.VITE_FORMSPREE_FORM_ID ?? "xyzabc123";
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = schema.safeParse(values);
     if (!result.success) {
@@ -42,14 +46,50 @@ export function Contact() {
       setErrors(fieldErrors);
       return;
     }
+    
     setErrors({});
-    // Compose a mailto as a safe, dependency-free send mechanism.
-    const body = encodeURIComponent(`${values.message}\n\n— ${values.name} (${values.email})`);
-    const subject = encodeURIComponent(values.subject);
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
-    setValues({ name: "", email: "", subject: "", message: "" });
+    setSubmissionError(null);
+    setIsLoading(true);
+    
+    if (formspreeFormId === "xyzabc123") {
+      setSubmissionError(
+        "Formspree is not configured. Please set VITE_FORMSPREE_FORM_ID in your .env file or replace the placeholder form ID."
+      );
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      const response = await fetch(`https://formspree.io/f/${formspreeFormId}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          subject: values.subject,
+          message: values.message,
+        }),
+      });
+
+      if (response.ok) {
+        setSent(true);
+        setValues({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => setSent(false), 4000);
+      } else {
+        const errorText = await response.text();
+        console.error("Formspree response error:", errorText);
+        setSubmissionError(
+          "Unable to send message. Please check your Formspree settings and try again."
+        );
+      }
+    } catch (error) {
+      console.error("Failed to send message:", error);
+      setSubmissionError(
+        "Something went wrong while sending your message. Please try again later."
+      );
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -133,11 +173,18 @@ export function Contact() {
 
             <button
               type="submit"
-              className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow-cyan)] transition-transform hover:scale-[1.02]"
+              disabled={isLoading}
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow-cyan)] transition-transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              Send Message
+              {isLoading ? "Sending..." : "Send Message"}
             </button>
+
+            {submissionError && (
+              <div className="rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">
+                {submissionError}
+              </div>
+            )}
 
             <AnimatePresence>
               {sent && (

@@ -37,13 +37,13 @@ const experiments = [
 export const Route = createFileRoute("/experiments")({
   head: () => ({
     meta: [
-      { title: "Three.js Experiments Lab — Aarav Kapoor" },
+      { title: "Three.js Experiments Lab — Afraar M" },
       {
         name: "description",
         content:
-          "Three.js examples, WebGL experiments and performance notes from Aarav Kapoor's creative coding portfolio.",
+          "Three.js examples, WebGL experiments and performance notes from Afraar M's creative coding portfolio.",
       },
-      { property: "og:title", content: "Three.js Experiments Lab — Aarav Kapoor" },
+      { property: "og:title", content: "Three.js Experiments Lab — Afraar M" },
       {
         property: "og:description",
         content:
@@ -51,7 +51,7 @@ export const Route = createFileRoute("/experiments")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/experiments` },
-      { name: "twitter:title", content: "Three.js Experiments Lab — Aarav Kapoor" },
+      { name: "twitter:title", content: "Three.js Experiments Lab — Afraar M" },
       {
         name: "twitter:description",
         content:

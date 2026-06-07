@@ -58,7 +58,8 @@ export function Resume() {
             </div>
           </div>
           <a
-            href="#"
+            href="/resume.pdf"
+            download="Afraar-M-Resume.pdf"
             className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow-cyan)] transition-transform hover:scale-105"
           >
             <Download className="h-4 w-4" /> Download Resume

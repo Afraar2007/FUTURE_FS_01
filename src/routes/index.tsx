@@ -8,7 +8,6 @@ import { Hero } from "@/components/portfolio/Hero";
 import { About } from "@/components/portfolio/About";
 import { Skills } from "@/components/portfolio/Skills";
 import { Projects } from "@/components/portfolio/Projects";
-import { Articles } from "@/components/portfolio/Articles";
 import { CodingProfiles } from "@/components/portfolio/CodingProfiles";
 import { Resume } from "@/components/portfolio/Resume";
 import { Social } from "@/components/portfolio/Social";
@@ -22,13 +21,13 @@ const SITE_URL = "https://stellar-showcase-41.lovable.app";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aarav Kapoor — Creative Full-Stack Developer" },
+      { title: "Afraar M — Creative Full-Stack Developer" },
       {
         name: "description",
         content:
-          "Award-style portfolio of Aarav Kapoor, a creative full-stack developer building immersive, high-performance web experiences with React, Three.js and motion.",
+          "Award-style portfolio of Afraar M, a creative full-stack developer building immersive, high-performance web experiences with React, Three.js and motion.",
       },
-      { property: "og:title", content: "Aarav Kapoor — Creative Full-Stack Developer" },
+      { property: "og:title", content: "Afraar M — Creative Full-Stack Developer" },
       {
         property: "og:description",
         content:
@@ -37,7 +36,7 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/` },
       { property: "og:image", content: SOCIAL_IMAGE },
-      { name: "twitter:title", content: "Aarav Kapoor — Creative Full-Stack Developer" },
+      { name: "twitter:title", content: "Afraar M — Creative Full-Stack Developer" },
       {
         name: "twitter:description",
         content:
@@ -54,7 +53,7 @@ export const Route = createFileRoute("/")({
           "@graph": [
             {
               "@type": "Person",
-              name: "Aarav Kapoor",
+              name: "Afraar M",
               jobTitle: "Creative Full-Stack Developer",
               url: `${SITE_URL}/`,
               image: SOCIAL_IMAGE,
@@ -66,7 +65,7 @@ export const Route = createFileRoute("/")({
             },
             {
               "@type": "WebSite",
-              name: "Aarav Kapoor — Portfolio",
+              name: "Afraar M — Portfolio",
               url: `${SITE_URL}/`,
             },
           ],
@@ -91,7 +90,7 @@ function Index() {
         <About />
         <Skills />
         <Projects />
-        <Articles />
+        {/* Articles removed */}
         <CodingProfiles />
         <Resume />
         <Social />

@@ -1,15 +1,33 @@
 import { motion } from "framer-motion";
 import { Linkedin, Github, Instagram, Twitter, Youtube, Mail } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
+import { socials } from "@/lib/portfolio/data";
 
-const items = [
-  { name: "LinkedIn", icon: Linkedin, url: "#", color: "oklch(0.6 0.16 240)" },
-  { name: "GitHub", icon: Github, url: "#", color: "oklch(0.75 0.02 264)" },
-  { name: "Instagram", icon: Instagram, url: "#", color: "oklch(0.68 0.27 340)" },
-  { name: "Twitter/X", icon: Twitter, url: "#", color: "oklch(0.82 0.16 195)" },
-  { name: "YouTube", icon: Youtube, url: "#", color: "oklch(0.62 0.24 18)" },
-  { name: "Email", icon: Mail, url: "mailto:hello@aaravkapoor.dev", color: "oklch(0.65 0.24 295)" },
-];
+const iconMap = {
+  LinkedIn: Linkedin,
+  GitHub: Github,
+  Instagram: Instagram,
+  "Twitter/X": Twitter,
+  YouTube: Youtube,
+  Email: Mail,
+} as const;
+
+const items = socials.map((social) => ({
+  ...social,
+  icon: iconMap[social.name as keyof typeof iconMap] ?? Mail,
+  color:
+    social.name === "LinkedIn"
+      ? "oklch(0.6 0.16 240)"
+      : social.name === "GitHub"
+      ? "oklch(0.75 0.02 264)"
+      : social.name === "Instagram"
+      ? "oklch(0.68 0.27 340)"
+      : social.name === "Twitter/X"
+      ? "oklch(0.82 0.16 195)"
+      : social.name === "YouTube"
+      ? "oklch(0.62 0.24 18)"
+      : "oklch(0.65 0.24 295)",
+}));
 
 export function Social() {
   return (
@@ -20,6 +38,8 @@ export function Social() {
           <motion.a
             key={s.name}
             href={s.url}
+            target="_blank"
+            rel="noreferrer noopener"
             initial={{ opacity: 0, scale: 0.85 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}

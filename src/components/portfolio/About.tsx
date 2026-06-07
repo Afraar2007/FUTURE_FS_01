@@ -35,16 +35,13 @@ export function About() {
           <Reveal>
             <p className="text-lg leading-relaxed text-muted-foreground">
               I&apos;m <span className="font-semibold text-foreground">{profile.name}</span>,
-              a {profile.title.toLowerCase()} based in {profile.location}. Over the last six
-              years I&apos;ve partnered with startups and studios to ship products that feel
-              alive — blending performant engineering with cinematic, interaction-rich design.
+              a {profile.title.toLowerCase()} based in {profile.location}. Motivated and detail-oriented individual with a strong passion for technology, problem-solving, and continuous learning. Skilled in programming, web development, and analytical thinking, with the ability to adapt quickly to new challenges. Committed to delivering high-quality work, collaborating effectively in team environments, and contributing to organizational success through dedication, creativity, and a strong work ethic. Seeking opportunities to apply technical skills, gain practical experience, and grow as a professional in the field of software development and technology.
             </p>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-5 leading-relaxed text-muted-foreground">
-              My sweet spot is the seam between design and code: WebGL scenes, fluid motion
-              systems, and architectures that scale without sacrificing the 60 FPS magic. When
-              I&apos;m not building, I&apos;m writing about the craft and contributing to open source.
+              My sweet spot is building clean, responsive, and scalable web applications. I enjoy turning ideas into real-world solutions through code while continuously learning new technologies and improving my problem-solving skills. When I'm not coding, I'm exploring new tech trends, working on personal projects, and sharpening my development expertise.
+
             </p>
           </Reveal>
 
