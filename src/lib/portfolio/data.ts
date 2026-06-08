@@ -52,8 +52,8 @@ export const skills: { name: string; level: number; category: SkillCategory }[] 
   //{ name: "Kubernetes", level: 74, category: "DevOps" },
   //{ name: "CI/CD Pipelines", level: 83, category: "DevOps" },
   //{ name: "AWS", level: 85, category: "Cloud" },
-  //{ name: "Cloudflare", level: 80, category: "Cloud" },
-  { name: "Vercel", level: 92, category: "Cloud" },
+  //{ name: "Cloudflare", level: 80, category: "Tools" },
+  { name: "Vercel", level: 92, category: "Tools" },
   { name: "Git / GitHub", level: 95, category: "Tools" },
   //{ name: "Figma", level: 81, category: "Tools" },
   //{ name: "Vite", level: 90, category: "Tools" },
@@ -105,7 +105,7 @@ export const projects: {
 ];
 
 export const codingProfiles = [
-  { name: "GitHub", handle: "@aaravk", stat: "1.2k contributions", url: "#" },
+  { name: "GitHub", handle: "@aaravk", stat: "99 contributions", url: "https://github.com/Afraar2007" },
   { name: "LeetCode", handle: "@aarav_k", stat: "Top 4% · 720 solved", url: "#" },
  // { name: "HackerRank", handle: "@aaravk", stat: "5★ Problem Solving", url: "#" },
   //{ name: "CodeChef", handle: "@aaravk", stat: "4★ · 1923 rating", url: "#" },
@@ -127,17 +127,18 @@ export const education = [
     role: "B.Tech, Computer Science",
     org: "Madras institute of technology-Anna University",
     period: "2024-2028",
+    detail: "Currently pursuing a Bachelor of Technology in Computer Science with a focus on full-stack development and modern web technologies.",
   },
 ];
 
 export const certifications = [
-  "Chakravyuha – Treasure Hunt",
+  "Chakravyuha - Treasure Hunt",
   " National Service Scheme (NSS) Award",
   "Building Onchain Apps with Arbitrum (Ethereum)",
 ];
 
 export const socials = [
-  { name: "LinkedIn", url: "https://www.linkedin.com/in/afraar-m-51239432b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
+  { name: "LinkedIn", url: "www.linkedin.com/in/afraar-m-51239432b" },
   { name: "GitHub", url: "https://github.com/Afraar2007" },
   { name: "Instagram", url: "https://www.instagram.com/afraar2007/" },
   { name: "Email", url: "mailto:afraar1512007@gmail.com" },
