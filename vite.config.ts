@@ -12,7 +12,8 @@ export default defineConfig({
     // nitro/vite builds from this when server rendering is enabled.
     server: { entry: "server" },
   },
+  // Use Cloudflare preset for Nitro so Cloudflare Pages / Workers can deploy SSR output
   nitro: {
-    preset: "vercel",
+    preset: "cloudflare-module",
   },
 });
