@@ -52,10 +52,21 @@ export function Contact() {
     setIsLoading(true);
     
     if (formspreeFormId === "xyzabc123") {
-      setSubmissionError(
-        "Formspree is not configured. Please set VITE_FORMSPREE_FORM_ID in your .env file or replace the placeholder form ID."
-      );
-      setIsLoading(false);
+      // Fallback: open the user's mail client with a pre-filled message when Formspree isn't configured.
+      try {
+        const mailto = `mailto:${profile.email}?subject=${encodeURIComponent(values.subject)}&body=${encodeURIComponent(`Name: ${values.name}\nEmail: ${values.email}\n\n${values.message}`)}`;
+        window.location.href = mailto;
+        setSent(true);
+        setValues({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => setSent(false), 4000);
+      } catch (err) {
+        console.error("Mailto fallback failed:", err);
+        setSubmissionError(
+          "Formspree is not configured and the mail client could not be opened. Please set VITE_FORMSPREE_FORM_ID in your .env file to enable form submission."
+        );
+      } finally {
+        setIsLoading(false);
+      }
       return;
     }
 
